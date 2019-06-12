@@ -9,11 +9,14 @@
 import UIKit
 import os
 
-class GiveBrownieViewController: UIViewController {
+import CenteredCollectionView
+
+class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 	@IBOutlet weak var brownieNumberLabel: UILabel!
 	@IBOutlet weak var pointDescription: UILabel!
-
+	@IBOutlet weak var friendCollection: UICollectionView!
+	
 	@IBAction func givePoint(_ sender: Any) {
 
 		let points = Int(brownieNumberLabel.text!)! + 1
@@ -29,21 +32,54 @@ class GiveBrownieViewController: UIViewController {
 //		 save locally, etc.
 	}
 
+	// Local variables for friend collection view
+	let cellPercentWidth = CGFloat(0.7)
+	var friendViewFlowLayout: CenteredCollectionViewFlowLayout!
+
+	// Data source for friends
+	// @TODO: Make this persistant
+	var friends = [Friend]()
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+		// Configure friend collection view data
+		friendViewFlowLayout = friendCollection.collectionViewLayout as? CenteredCollectionViewFlowLayout
+		friendCollection.decelerationRate = .fast
+		friendCollection.delegate = self
+		friendCollection.dataSource = self
 
-    /*
-    // MARK: - Navigation
+		// Configure friend collection view, view.
+		friendViewFlowLayout.itemSize = CGSize(width: view.bounds.width * cellPercentWidth,
+														   height: view.bounds.height * (cellPercentWidth * 2.0))
+		friendCollection.showsVerticalScrollIndicator = false
+		friendCollection.showsHorizontalScrollIndicator = false
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		// Add some friends!
+		friends.append(Friend(username: "dave", browniePoints: 2))
+		friends.append(Friend(username: "joe", browniePoints: 5))
+		friends.append(Friend(username: "bob", browniePoints: 0))
+		friends.append(Friend(username: "katie", browniePoints: 10))
+
     }
-    */
+
+	// MARK: -- UICollectionViewDelegate
+
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return friends.count
+	}
+
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCell", for: indexPath) as? FriendCollectionViewCell
+
+		guard let friendCell = cell else {
+			os_log("Unable to instantiate friend cell at index %d", indexPath.row)
+			fatalError()
+		}
+
+		friendCell.label.text = friends[indexPath.row].username
+		return friendCell
+	}
 
 }

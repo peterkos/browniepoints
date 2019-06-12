@@ -17,6 +17,8 @@
 		D74C1A9A22AF16E90091FE8C /* BrowniePointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1A9922AF16E90091FE8C /* BrowniePointsTests.swift */; };
 		D74C1AA622B0788D0091FE8C /* GiveBrownieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1AA522B0788D0091FE8C /* GiveBrownieViewController.swift */; };
 		D74C1AA822B078AA0091FE8C /* BrowseFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1AA722B078AA0091FE8C /* BrowseFriendsViewController.swift */; };
+		D7C579CA22B0D06B000F5DD4 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C579C922B0D06B000F5DD4 /* Friend.swift */; };
+		D7C579CC22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D74C1A9B22AF16E90091FE8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74C1AA522B0788D0091FE8C /* GiveBrownieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveBrownieViewController.swift; sourceTree = "<group>"; };
 		D74C1AA722B078AA0091FE8C /* BrowseFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseFriendsViewController.swift; sourceTree = "<group>"; };
+		D7C579C922B0D06B000F5DD4 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCC0FA76812C7134262C1FFD /* Pods-BrowniePointsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePointsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePointsTests/Pods-BrowniePointsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +117,8 @@
 		D74C1A8322AF16E80091FE8C /* BrowniePoints */ = {
 			isa = PBXGroup;
 			children = (
+				D7C579C922B0D06B000F5DD4 /* Friend.swift */,
+				D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */,
 				D74C1AA422B078470091FE8C /* ViewControllers */,
 				D74C1A8422AF16E80091FE8C /* AppDelegate.swift */,
 				D74C1A8622AF16E80091FE8C /* ViewController.swift */,
@@ -315,8 +321,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C579CC22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift in Sources */,
 				D74C1AA822B078AA0091FE8C /* BrowseFriendsViewController.swift in Sources */,
 				D74C1AA622B0788D0091FE8C /* GiveBrownieViewController.swift in Sources */,
+				D7C579CA22B0D06B000F5DD4 /* Friend.swift in Sources */,
 				D74C1A8722AF16E80091FE8C /* ViewController.swift in Sources */,
 				D74C1A8522AF16E80091FE8C /* AppDelegate.swift in Sources */,
 			);
