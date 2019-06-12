@@ -51,9 +51,11 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		// Configure friend collection view, view.
 		friendViewFlowLayout.itemSize = CGSize(width: view.bounds.width * cellPercentWidth,
-														   height: view.bounds.height * (cellPercentWidth * 2.0))
+														   height: view.bounds.height * (cellPercentWidth))
 		friendCollection.showsVerticalScrollIndicator = false
 		friendCollection.showsHorizontalScrollIndicator = false
+
+		friendCollection.backgroundView?.backgroundColor = .white
 
 		// Add some friends!
 		friends.append(Friend(username: "dave", browniePoints: 2))

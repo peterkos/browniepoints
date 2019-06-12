@@ -13,4 +13,11 @@ class FriendCollectionViewCell: UICollectionViewCell {
 
 	@IBOutlet weak var label: UILabel!
 
+	override func awakeFromNib() {
+		super.awakeFromNib()
+
+		contentView.backgroundColor = .purple
+
+	}
+
 }
