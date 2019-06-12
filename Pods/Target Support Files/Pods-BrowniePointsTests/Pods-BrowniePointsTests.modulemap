@@ -1,0 +1,6 @@
+framework module Pods_BrowniePointsTests {
+  umbrella header "Pods-BrowniePointsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

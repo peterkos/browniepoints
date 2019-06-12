@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29CD6271BD9F9A62A8BA4289 /* Pods_BrowniePoints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9557B8CC903EDAFE606E8257 /* Pods_BrowniePoints.framework */; };
+		4FCF49FF81FDE790275ED4C1 /* Pods_BrowniePointsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05ADDE97F0EAF1E15EC746C /* Pods_BrowniePointsTests.framework */; };
 		D74C1A8522AF16E80091FE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1A8422AF16E80091FE8C /* AppDelegate.swift */; };
 		D74C1A8722AF16E80091FE8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1A8622AF16E80091FE8C /* ViewController.swift */; };
 		D74C1A8A22AF16E80091FE8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C1A8822AF16E80091FE8C /* Main.storyboard */; };
@@ -28,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6FA60B629BECBA56E5D20860 /* Pods-BrowniePoints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePoints.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePoints/Pods-BrowniePoints.debug.xcconfig"; sourceTree = "<group>"; };
+		70F06FD0E14AB0466C847FE6 /* Pods-BrowniePoints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePoints.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePoints/Pods-BrowniePoints.release.xcconfig"; sourceTree = "<group>"; };
+		9557B8CC903EDAFE606E8257 /* Pods_BrowniePoints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrowniePoints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A05ADDE97F0EAF1E15EC746C /* Pods_BrowniePointsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrowniePointsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D444BD58B167CB3D75B5AFE8 /* Pods-BrowniePointsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePointsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePointsTests/Pods-BrowniePointsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D74C1A8122AF16E80091FE8C /* BrowniePoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrowniePoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74C1A8422AF16E80091FE8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74C1A8622AF16E80091FE8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +47,7 @@
 		D74C1A9B22AF16E90091FE8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74C1AA522B0788D0091FE8C /* GiveBrownieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveBrownieViewController.swift; sourceTree = "<group>"; };
 		D74C1AA722B078AA0091FE8C /* BrowseFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseFriendsViewController.swift; sourceTree = "<group>"; };
+		DCC0FA76812C7134262C1FFD /* Pods-BrowniePointsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePointsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePointsTests/Pods-BrowniePointsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29CD6271BD9F9A62A8BA4289 /* Pods_BrowniePoints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,18 +63,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCF49FF81FDE790275ED4C1 /* Pods_BrowniePointsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2521258C5DFE55F9B866CB5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FA60B629BECBA56E5D20860 /* Pods-BrowniePoints.debug.xcconfig */,
+				70F06FD0E14AB0466C847FE6 /* Pods-BrowniePoints.release.xcconfig */,
+				DCC0FA76812C7134262C1FFD /* Pods-BrowniePointsTests.debug.xcconfig */,
+				D444BD58B167CB3D75B5AFE8 /* Pods-BrowniePointsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B8C23EEC0E53578A401E45A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9557B8CC903EDAFE606E8257 /* Pods_BrowniePoints.framework */,
+				A05ADDE97F0EAF1E15EC746C /* Pods_BrowniePointsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D74C1A7822AF16E80091FE8C = {
 			isa = PBXGroup;
 			children = (
 				D74C1A8322AF16E80091FE8C /* BrowniePoints */,
 				D74C1A9822AF16E90091FE8C /* BrowniePointsTests */,
 				D74C1A8222AF16E80091FE8C /* Products */,
+				2521258C5DFE55F9B866CB5A /* Pods */,
+				B8C23EEC0E53578A401E45A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74C1A9E22AF16E90091FE8C /* Build configuration list for PBXNativeTarget "BrowniePoints" */;
 			buildPhases = (
+				4615B2ADF2A8548895B7DC24 /* [CP] Check Pods Manifest.lock */,
 				D74C1A7D22AF16E80091FE8C /* Sources */,
 				D74C1A7E22AF16E80091FE8C /* Frameworks */,
 				D74C1A7F22AF16E80091FE8C /* Resources */,
+				4AB2D936ECFBC8609C65E81D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +168,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74C1AA122AF16E90091FE8C /* Build configuration list for PBXNativeTarget "BrowniePointsTests" */;
 			buildPhases = (
+				647EAF895FB89DC80C76797B /* [CP] Check Pods Manifest.lock */,
 				D74C1A9122AF16E90091FE8C /* Sources */,
 				D74C1A9222AF16E90091FE8C /* Frameworks */,
 				D74C1A9322AF16E90091FE8C /* Resources */,
@@ -205,6 +240,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4615B2ADF2A8548895B7DC24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BrowniePoints-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AB2D936ECFBC8609C65E81D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BrowniePoints/Pods-BrowniePoints-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BrowniePoints/Pods-BrowniePoints-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		647EAF895FB89DC80C76797B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BrowniePointsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D74C1A7D22AF16E80091FE8C /* Sources */ = {
@@ -374,6 +478,7 @@
 		};
 		D74C1A9F22AF16E90091FE8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA60B629BECBA56E5D20860 /* Pods-BrowniePoints.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -392,6 +497,7 @@
 		};
 		D74C1AA022AF16E90091FE8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70F06FD0E14AB0466C847FE6 /* Pods-BrowniePoints.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -410,6 +516,7 @@
 		};
 		D74C1AA222AF16E90091FE8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC0FA76812C7134262C1FFD /* Pods-BrowniePointsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -431,6 +538,7 @@
 		};
 		D74C1AA322AF16E90091FE8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D444BD58B167CB3D75B5AFE8 /* Pods-BrowniePointsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -1,0 +1,16 @@
+PODS:
+  - CenteredCollectionView (2.0.0)
+
+DEPENDENCIES:
+  - CenteredCollectionView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CenteredCollectionView
+
+SPEC CHECKSUMS:
+  CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
+
+PODFILE CHECKSUM: 1aee818877ef420be52d81a040be5aa9661bde99
+
+COCOAPODS: 1.5.3
