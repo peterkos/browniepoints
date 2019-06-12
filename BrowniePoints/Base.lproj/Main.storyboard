@@ -48,13 +48,13 @@
         <!--Bake-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BrowniePoints" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GiveBrownieViewController" customModule="BrowniePoints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
-                                <rect key="frame" x="182" y="203" width="50.5" height="105"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
+                                <rect key="frame" x="182" y="203" width="50" height="105"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="90"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,9 +63,12 @@
                                 <rect key="frame" x="20" y="529" width="374" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Give a Brownie Point!"/>
+                                <connections>
+                                    <action selector="givePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7j-fj-7eN"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anW-mT-iev">
-                                <rect key="frame" x="178" y="316" width="59" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anW-mT-iev">
+                                <rect key="frame" x="105" y="316" width="205" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,18 +76,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xwo-wu-b3q" secondAttribute="bottom" constant="249" id="0mG-qp-e50"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="anW-mT-iev" secondAttribute="trailing" constant="177" id="BrG-oD-C8e"/>
-                            <constraint firstItem="anW-mT-iev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="178" id="Xnv-3b-ayn"/>
-                            <constraint firstItem="anW-mT-iev" firstAttribute="top" secondItem="7B0-Kt-ibq" secondAttribute="bottom" constant="8" id="ZKV-XM-eg0"/>
-                            <constraint firstItem="xwo-wu-b3q" firstAttribute="top" secondItem="anW-mT-iev" secondAttribute="bottom" constant="186" id="h6W-FJ-ZcH"/>
-                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="k3H-vX-7Z6"/>
-                            <constraint firstItem="xwo-wu-b3q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kzu-q9-7oE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xwo-wu-b3q" secondAttribute="trailing" constant="20" id="q8M-Ou-wwa"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="0jX-n8-MGx"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="centerX" secondItem="xwo-wu-b3q" secondAttribute="centerX" id="1mc-bd-dB7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xwo-wu-b3q" secondAttribute="bottom" constant="249" id="JMP-RU-7Q1"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="top" secondItem="7B0-Kt-ibq" secondAttribute="bottom" constant="8" symbolic="YES" id="JtP-Mk-aAj"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="centerX" secondItem="7B0-Kt-ibq" secondAttribute="centerX" id="LnO-bC-aZJ"/>
+                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="OcZ-Dp-uOm"/>
+                            <constraint firstItem="xwo-wu-b3q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QOm-nW-rtA"/>
+                            <constraint firstItem="xwo-wu-b3q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TuF-fG-tEV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bake" id="ogz-DD-tVh"/>
+                    <connections>
+                        <outlet property="brownieNumberLabel" destination="7B0-Kt-ibq" id="sS0-xo-ZTJ"/>
+                        <outlet property="pointDescription" destination="anW-mT-iev" id="PSe-Ma-Ops"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +100,7 @@
         <!--Item-->
         <scene sceneID="0UP-sp-EXF">
             <objects>
-                <viewController id="tYI-HI-ckW" sceneMemberID="viewController">
+                <viewController id="tYI-HI-ckW" customClass="BrowseFriendsViewController" customModule="BrowniePoints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p6q-uM-NdG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
