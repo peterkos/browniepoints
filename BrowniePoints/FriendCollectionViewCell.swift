@@ -16,7 +16,9 @@ class FriendCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		contentView.backgroundColor = .purple
+		label.textColor = .white
+		contentView.backgroundColor = .brown
+		contentView.layer.cornerRadius = 5.0
 
 	}
 

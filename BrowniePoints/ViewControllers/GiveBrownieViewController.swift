@@ -51,10 +51,14 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		// Configure friend collection view, view.
 		friendViewFlowLayout.itemSize = CGSize(width: view.bounds.width * cellPercentWidth,
-														   height: view.bounds.height * (cellPercentWidth))
+											   height:  CGFloat(100.0))
+
+		// Set to vertical scroll, and remove scrollbars
+		friendViewFlowLayout.scrollDirection = .vertical
 		friendCollection.showsVerticalScrollIndicator = false
 		friendCollection.showsHorizontalScrollIndicator = false
 
+		// Set background color for now
 		friendCollection.backgroundView?.backgroundColor = .white
 
 		// Add some friends!
