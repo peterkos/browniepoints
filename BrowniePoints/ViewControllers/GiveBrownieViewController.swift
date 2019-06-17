@@ -17,7 +17,7 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 	@IBOutlet weak var pointDescription: UILabel!
 	@IBOutlet weak var friendCollection: UICollectionView!
 	
-	@IBAction func givePoint(_ sender: Any) {
+	@IBAction func givePoint(_ sender: BrowniePointButton) {
 
 		let points = Int(brownieNumberLabel.text!)! + 1
 		brownieNumberLabel.text = String(points)

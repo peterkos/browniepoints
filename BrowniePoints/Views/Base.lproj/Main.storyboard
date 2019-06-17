@@ -51,16 +51,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-wu-b3q">
-                                <rect key="frame" x="20" y="529" width="374" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Give a Brownie Point!"/>
-                                <connections>
-                                    <action selector="givePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7j-fj-7eN"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anW-mT-iev">
-                                <rect key="frame" x="105" y="617" width="244" height="27"/>
+                                <rect key="frame" x="85" y="494" width="244" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,6 +60,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uDI-F7-vE5">
                                 <rect key="frame" x="0.0" y="88" width="414" height="197"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="197" id="aAH-dh-Kh9"/>
+                                </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="rNb-FU-04p" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendCell" id="27e-lK-HkL" customClass="FriendCollectionViewCell" customModule="BrowniePoints" customModuleProvider="target">
@@ -97,28 +92,40 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
-                                <rect key="frame" x="162" y="399" width="90" height="105"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
+                                <rect key="frame" x="97" y="399" width="221" height="105"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="90"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-wu-b3q" customClass="BrowniePointButton" customModule="BrowniePoints" customModuleProvider="target">
+                                <rect key="frame" x="97" y="679" width="221" height="58"/>
+                                <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="tWj-TQ-vD6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Give a Brownie Point!"/>
+                                <connections>
+                                    <action selector="givePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7j-fj-7eN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="anW-mT-iev" firstAttribute="top" secondItem="xwo-wu-b3q" secondAttribute="bottom" constant="53" id="6Uo-Di-laY"/>
-                            <constraint firstItem="uDI-F7-vE5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7lT-8r-Jc8"/>
-                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="centerX" secondItem="xwo-wu-b3q" secondAttribute="centerX" id="ID0-Tz-Q2w"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="anW-mT-iev" secondAttribute="bottom" constant="169" id="OaC-v3-CyH"/>
-                            <constraint firstItem="anW-mT-iev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="P6R-QJ-xSM"/>
-                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="centerX" secondItem="uDI-F7-vE5" secondAttribute="centerX" id="U0c-xA-hie"/>
-                            <constraint firstItem="xwo-wu-b3q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VeK-m2-UcQ"/>
-                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="162" id="Wem-Sj-l8v"/>
-                            <constraint firstItem="xwo-wu-b3q" firstAttribute="top" secondItem="7B0-Kt-ibq" secondAttribute="bottom" constant="25" id="dJE-Pc-Jjy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uDI-F7-vE5" secondAttribute="bottom" constant="528" id="rqe-lJ-atj"/>
-                            <constraint firstItem="uDI-F7-vE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tRC-3s-PTY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="anW-mT-iev" secondAttribute="trailing" constant="65" id="tiU-Id-ckR"/>
-                            <constraint firstAttribute="trailing" secondItem="uDI-F7-vE5" secondAttribute="trailing" id="yfe-c3-eeO"/>
+                            <constraint firstItem="uDI-F7-vE5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="71N-6f-ypN"/>
+                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="trailing" secondItem="xwo-wu-b3q" secondAttribute="trailing" id="80e-4A-xwF"/>
+                            <constraint firstAttribute="bottom" secondItem="anW-mT-iev" secondAttribute="bottom" constant="375" id="Eue-CK-cSy"/>
+                            <constraint firstItem="uDI-F7-vE5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LQh-1q-0R5"/>
+                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="leading" secondItem="xwo-wu-b3q" secondAttribute="leading" id="Slh-qU-Gn9"/>
+                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="centerX" secondItem="uDI-F7-vE5" secondAttribute="centerX" id="TGJ-jh-Sqw"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="centerX" secondItem="xwo-wu-b3q" secondAttribute="centerX" id="UPG-c8-PNX"/>
+                            <constraint firstItem="anW-mT-iev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="UYD-28-22s"/>
+                            <constraint firstItem="uDI-F7-vE5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VmC-bw-VJh"/>
+                            <constraint firstItem="xwo-wu-b3q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="YbV-Qs-KWL"/>
+                            <constraint firstItem="7B0-Kt-ibq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="399" id="Z9w-HA-4PC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xwo-wu-b3q" secondAttribute="bottom" constant="76" id="neb-xk-15w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
