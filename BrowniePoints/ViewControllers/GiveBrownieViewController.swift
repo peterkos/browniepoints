@@ -32,13 +32,20 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 //		 save locally, etc.
 	}
 
+	// MARK: Local variables
+
 	// Local variables for friend collection view
 	let cellPercentWidth = CGFloat(0.7)
 	var friendViewFlowLayout: CenteredCollectionViewFlowLayout!
 
-	// Data source for friends
+	// Data source for friends, and supporting info
 	// @TODO: Make this persistant
 	var friends = [Friend]()
+	var currentFriend: Friend? {
+		didSet {
+			print("Current friend is now: \(currentFriend!.username))")
+		}
+	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +74,12 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		friends.append(Friend(username: "bob", browniePoints: 0))
 		friends.append(Friend(username: "katie", browniePoints: 10))
 
+
+		// In addition to setting the current friend when the friend collection view is done scrolling,
+		// on initial viewdidload, no scrolling has occured.
+		// So, when the user loads up the page, we need to set it ourselves manually.
+		// (Defaults to first friend if it cannot be instantiated)
+		currentFriend = friends[friendViewFlowLayout.currentCenteredPage ?? 0]
     }
 
 	// MARK: -- UICollectionViewDelegate
@@ -86,6 +99,17 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		friendCell.label.text = friends[indexPath.row].username
 		return friendCell
+	}
+
+	// Set the current friend once the collection view is done scrolling
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+		guard let friendIndex = friendViewFlowLayout.currentCenteredPage else {
+			os_log("Unable to get index of current page in friends")
+			return
+		}
+
+		currentFriend = friends[friendIndex]
 	}
 
 }
