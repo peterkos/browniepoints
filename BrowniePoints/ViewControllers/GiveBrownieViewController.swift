@@ -10,6 +10,7 @@ import UIKit
 import os
 
 import CenteredCollectionView
+import RealmSwift
 
 class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -84,6 +85,14 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		friends.append(Friend(username: "joe", browniePoints: 5))
 		friends.append(Friend(username: "bob", browniePoints: 0))
 		friends.append(Friend(username: "katie", browniePoints: 10))
+
+
+		// (BAD)
+		// Let's also try to save one model to the database, just for fun.
+		let realm = try! Realm()
+		try! realm.write {
+			realm.add(friends[0])
+		}
 
 
 		// In addition to setting the current friend when the friend collection view is done scrolling,
