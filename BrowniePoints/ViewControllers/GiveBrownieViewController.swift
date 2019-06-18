@@ -28,32 +28,30 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		// Increment the brownie count
 		currentFriend!.browniePoints += 1
 
+		// Update the model
+		do {
+			try realm.write {
+				realm.create(Friend.self,
+							 value: ["username": currentFriend!.username,
+									 "browniePoints": currentFriend!.browniePoints],
+							 update: .all)
+
+				print("Updated \(currentFriend!.username) to \(currentFriend!.browniePoints) points!")
+			}
+		} catch let error as NSError {
+			print(error.debugDescription)
+			return
+		}
+
 		// Update the view
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
-		// Update the model
-		try! realm.write {
-
-//			realm.add(currentFriend!, update: .modified)
-			realm.create(Friend.self,
-						 value: ["username": currentFriend!.username,
-								 "browniePoints": currentFriend!.browniePoints],
-						 update: .all)
-
-			print("updated current friend!")
-			print(friends)
-		}
-
-
 		// Update point description singular vs. plural
-		// (back to the old code, I see...)
 		if currentFriend!.browniePoints == 1 {
 			pointDescription.text = "Point"
 		} else {
 			pointDescription.text = "Points"
 		}
-
-//		 @TODO: other callbacks and stuff in here, persistence, etc.
 	}
 
 
@@ -64,7 +62,6 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 	var friendViewFlowLayout: CenteredCollectionViewFlowLayout!
 
 	// Data source for friends, and supporting info
-//	var friends = [Friend]()
 	var friends = List<Friend>()
 
 	var currentFriend: Friend? {
@@ -108,12 +105,11 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		friends.append(Friend(username: "katie", browniePoints: 10))
 
 
-		// (BAD)
-		// Let's also try to save one model to the database, just for fun.
+		// Save this example data to Realm, if it doesn't alreay exist
+		// (handled automatically by Realm)
 		try! realm.write {
 			realm.add(friends, update: .all)
 		}
-
 
 		// In addition to setting the current friend when the friend collection view is done scrolling,
 		// on initial viewdidload, no scrolling has occured.
