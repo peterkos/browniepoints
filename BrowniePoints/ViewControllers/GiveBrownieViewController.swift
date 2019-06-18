@@ -25,8 +25,25 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			return
 		}
 
+		// Increment the brownie count
 		currentFriend!.browniePoints += 1
+
+		// Update the view
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
+
+		// Update the model
+		try! realm.write {
+
+//			realm.add(currentFriend!, update: .modified)
+			realm.create(Friend.self,
+						 value: ["username": currentFriend!.username,
+								 "browniePoints": currentFriend!.browniePoints],
+						 update: .all)
+
+			print("updated current friend!")
+			print(friends)
+		}
+
 
 		// Update point description singular vs. plural
 		// (back to the old code, I see...)
@@ -47,14 +64,18 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 	var friendViewFlowLayout: CenteredCollectionViewFlowLayout!
 
 	// Data source for friends, and supporting info
-	// @TODO: Make this persistant
-	var friends = [Friend]()
+//	var friends = [Friend]()
+	var friends = List<Friend>()
+
 	var currentFriend: Friend? {
 		didSet {
 			brownieNumberLabel.text = String(currentFriend!.browniePoints)
 			print("Current friend is now: \(currentFriend!.username)")
 		}
 	}
+
+	// Oh realm
+	let realm = try! Realm()
 
 
 	// MARK: View functions
@@ -89,9 +110,8 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		// (BAD)
 		// Let's also try to save one model to the database, just for fun.
-		let realm = try! Realm()
 		try! realm.write {
-			realm.add(friends[0])
+			realm.add(friends, update: .all)
 		}
 
 
