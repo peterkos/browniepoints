@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 class Friend: Object {
-	@objc var username: String = ""
-	@objc var browniePoints: Int = 0
+	@objc dynamic var username: String = ""
+	@objc dynamic var browniePoints: Int = 0
 
 	// @TODO: Fix instantiating new UUIDs on every launch
 //	@objc var id: String = "" // Grr, Realm doesn't support UUID

@@ -25,16 +25,13 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			return
 		}
 
-		// Increment the brownie count
-		currentFriend!.browniePoints += 1
-
 		// Update the model
 		do {
 			try realm.write {
-				realm.create(Friend.self,
-							 value: ["username": currentFriend!.username,
-									 "browniePoints": currentFriend!.browniePoints],
-							 update: .all)
+
+				// (Add might not be nessecary?)
+				currentFriend!.browniePoints += 1
+				realm.add(currentFriend!)
 
 				print("Updated \(currentFriend!.username) to \(currentFriend!.browniePoints) points!")
 			}
@@ -98,17 +95,30 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		// Set background color for now
 		friendCollection.backgroundView?.backgroundColor = .white
 
-		// Add some friends!
-		friends.append(Friend(username: "dave", browniePoints: 2))
-		friends.append(Friend(username: "joe", browniePoints: 5))
-		friends.append(Friend(username: "bob", browniePoints: 0))
-		friends.append(Friend(username: "katie", browniePoints: 10))
+		// @TODO: Add logic to filter only actual friends
+		let allFriends = realm.objects(Friend.self)
 
+		if (!allFriends.isEmpty) {
 
-		// Save this example data to Realm, if it doesn't alreay exist
-		// (handled automatically by Realm)
-		try! realm.write {
-			realm.add(friends, update: .all)
+			// Read the data into our local model isntance for our friendCollectionView
+			friends.append(objectsIn: allFriends)
+
+			// Also, update
+			self.friendCollection.reloadData()
+		} else {
+
+			// If no friends (someting something no cookies), add friends!
+			// (If only it was like this irl 😭)
+			friends.append(Friend(username: "dave", browniePoints: 2))
+			friends.append(Friend(username: "joe", browniePoints: 5))
+			friends.append(Friend(username: "bob", browniePoints: 0))
+			friends.append(Friend(username: "katie", browniePoints: 10))
+
+			// Save this example data to Realm, if it doesn't alreay exist
+			// (handled automatically by Realm)
+			try! realm.write {
+				realm.add(friends, update: .all)
+			}
 		}
 
 		// In addition to setting the current friend when the friend collection view is done scrolling,
