@@ -44,6 +44,8 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
 		// Update point description singular vs. plural
+		// @TODO: Move this so it gets updated when currentFriend is selected, or better yet, database is updated
+		// As it stands, if database is updated, this doesn't change.
 		if currentFriend!.browniePoints == 1 {
 			pointDescription.text = "Point"
 		} else {
@@ -139,11 +141,14 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCell", for: indexPath) as? FriendCollectionViewCell
 
+		// This might not be nessecary...
 		guard let friendCell = cell else {
 			os_log("Unable to instantiate friend cell at index %d", indexPath.row)
 			fatalError()
 		}
 
+		// @TODO: Hanadle database updates automatically
+		// If the database is updated now, the UI doesn't change until the user swipes around a bit.
 		friendCell.label.text = friends[indexPath.row].username
 		return friendCell
 	}
