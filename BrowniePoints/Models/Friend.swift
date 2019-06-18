@@ -12,17 +12,19 @@ import RealmSwift
 class Friend: Object {
 	@objc var username: String = ""
 	@objc var browniePoints: Int = 0
-	@objc var id: String = "" // Grr, Realm doesn't support UUID
+
+	// @TODO: Fix instantiating new UUIDs on every launch
+//	@objc var id: String = "" // Grr, Realm doesn't support UUID
 
 	convenience init(username: String, browniePoints: Int) {
 		self.init()
 		self.username = username
 		self.browniePoints = browniePoints
-		self.id = UUID().description
+//		self.id = UUID().description
 	}
 
 	override static func primaryKey() -> String? {
-		return "id"
+		return "username"
 	}
 
 }
