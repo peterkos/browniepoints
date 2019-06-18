@@ -13,24 +13,38 @@ import CenteredCollectionView
 
 class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-	@IBOutlet weak var brownieNumberLabel: UILabel!
+	@IBOutlet weak var brownieNumberLabel: UILabel! {
+		didSet {
+
+			// Prevent premature access before initialization of views
+			if (brownieNumberLabel == nil || brownieNumberLabel.text == nil || pointDescription == nil) {
+				return
+			}
+
+			if (Int(brownieNumberLabel!.text!) == 1) {
+				pointDescription.text = "Point"
+			} else {
+				pointDescription.text = "Points"
+			}
+		}
+	}
 	@IBOutlet weak var pointDescription: UILabel!
 	@IBOutlet weak var friendCollection: UICollectionView!
 	
 	@IBAction func givePoint(_ sender: BrowniePointButton) {
 
-		let points = Int(brownieNumberLabel.text!)! + 1
-		brownieNumberLabel.text = String(points)
-
-		if (points == 1) {
-			pointDescription.text = "Point"
-		} else {
-			pointDescription.text = "Points"
+		guard currentFriend != nil else {
+			print("Unable to find current friend.")
+			return
 		}
+
+		currentFriend!.browniePoints += 1
+		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
 //		 @TODO: other callbacks and stuff in here
 //		 save locally, etc.
 	}
+
 
 	// MARK: Local variables
 
@@ -43,9 +57,13 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 	var friends = [Friend]()
 	var currentFriend: Friend? {
 		didSet {
-			print("Current friend is now: \(currentFriend!.username))")
+			brownieNumberLabel.text = String(currentFriend!.browniePoints)
+			print("Current friend is now: \(currentFriend!.username)")
 		}
 	}
+
+
+	// MARK: View functions
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +99,7 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		// (Defaults to first friend if it cannot be instantiated)
 		currentFriend = friends[friendViewFlowLayout.currentCenteredPage ?? 0]
     }
+
 
 	// MARK: -- UICollectionViewDelegate
 

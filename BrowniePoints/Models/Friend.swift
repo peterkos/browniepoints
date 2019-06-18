@@ -9,7 +9,12 @@
 import Foundation
 
 
-struct Friend {
+class Friend {
 	var username: String
 	var browniePoints: Int
+
+	init(username: String, browniePoints: Int) {
+		self.username = username
+		self.browniePoints = browniePoints
+	}
 }
