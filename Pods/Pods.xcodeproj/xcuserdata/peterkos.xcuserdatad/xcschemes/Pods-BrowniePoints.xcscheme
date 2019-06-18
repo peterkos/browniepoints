@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CB3302ED2FCD5555E0C38DA616A8CF15"
+               BlueprintIdentifier = "A2D8FBB639178983F717925CEF6F1CC4"
                BuildableName = "Pods_BrowniePoints.framework"
                BlueprintName = "Pods-BrowniePoints"
                ReferencedContainer = "container:Pods.xcodeproj">

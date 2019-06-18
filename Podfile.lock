@@ -1,16 +1,26 @@
 PODS:
   - CenteredCollectionView (2.0.0)
+  - Realm (3.16.2):
+    - Realm/Headers (= 3.16.2)
+  - Realm/Headers (3.16.2)
+  - RealmSwift (3.16.2):
+    - Realm (= 3.16.2)
 
 DEPENDENCIES:
   - CenteredCollectionView
+  - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CenteredCollectionView
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
+  Realm: 0e73b4edeb5b6a90da3d83206883b2e34e00eb38
+  RealmSwift: a81e650171ef0a5f999df1ed8d39ba8d6fce88a4
 
-PODFILE CHECKSUM: 1aee818877ef420be52d81a040be5aa9661bde99
+PODFILE CHECKSUM: 98016e5f1e8dcbe250152f7b3ffa28eb66511610
 
 COCOAPODS: 1.5.3

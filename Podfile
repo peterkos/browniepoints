@@ -7,7 +7,7 @@ target 'BrowniePoints' do
 
   # Pods for BrowniePoints
   pod "CenteredCollectionView"
-
+  pod "RealmSwift"
 
   target 'BrowniePointsTests' do
     inherit! :search_paths
