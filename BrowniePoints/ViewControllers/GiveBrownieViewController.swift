@@ -13,21 +13,7 @@ import CenteredCollectionView
 
 class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-	@IBOutlet weak var brownieNumberLabel: UILabel! {
-		didSet {
-
-			// Prevent premature access before initialization of views
-			if (brownieNumberLabel == nil || brownieNumberLabel.text == nil || pointDescription == nil) {
-				return
-			}
-
-			if (Int(brownieNumberLabel!.text!) == 1) {
-				pointDescription.text = "Point"
-			} else {
-				pointDescription.text = "Points"
-			}
-		}
-	}
+	@IBOutlet weak var brownieNumberLabel: UILabel!
 	@IBOutlet weak var pointDescription: UILabel!
 	@IBOutlet weak var friendCollection: UICollectionView!
 	
@@ -41,8 +27,15 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		currentFriend!.browniePoints += 1
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
-//		 @TODO: other callbacks and stuff in here
-//		 save locally, etc.
+		// Update point description singular vs. plural
+		// (back to the old code, I see...)
+		if currentFriend!.browniePoints == 1 {
+			pointDescription.text = "Point"
+		} else {
+			pointDescription.text = "Points"
+		}
+
+//		 @TODO: other callbacks and stuff in here, persistence, etc.
 	}
 
 
