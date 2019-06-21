@@ -105,7 +105,7 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			// Read the data into our local model isntance for our friendCollectionView
 			friends.append(objectsIn: allFriends)
 
-			// Also, update
+			// Also, update the collection view (we are the data source after all 😏)
 			self.friendCollection.reloadData()
 		} else {
 
