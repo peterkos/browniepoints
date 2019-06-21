@@ -92,14 +92,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
-                                <rect key="frame" x="97" y="399" width="221" height="105"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Kt-ibq">
+                                <rect key="frame" x="97" y="399" width="220" height="105"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="90"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-wu-b3q" customClass="BrowniePointButton" customModule="BrowniePoints" customModuleProvider="target">
-                                <rect key="frame" x="97" y="679" width="221" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-wu-b3q" customClass="BrowniePointButton" customModule="BrowniePoints" customModuleProvider="target">
+                                <rect key="frame" x="97" y="679" width="220" height="58"/>
                                 <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="tWj-TQ-vD6"/>
@@ -148,8 +148,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AWM-xH-7Us">
-                                <rect key="frame" x="0.0" y="191" width="414" height="514"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AWM-xH-7Us">
+                                <rect key="frame" x="0.0" y="220" width="414" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" editingAccessoryType="detailButton" textLabel="L3b-IK-Fmw" detailTextLabel="V4X-G3-Gn3" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="xAv-AZ-gj5" customClass="FriendBrowseTableViewCell" customModule="BrowniePoints" customModuleProvider="target">
@@ -182,13 +182,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a friend below to join the pan!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaW-34-Vue">
+                                <rect key="frame" x="78" y="147" width="258" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AWM-xH-7Us" firstAttribute="leading" secondItem="ZAR-Aq-E2K" secondAttribute="leading" id="2N9-Le-M7p"/>
-                            <constraint firstItem="ZAR-Aq-E2K" firstAttribute="trailing" secondItem="AWM-xH-7Us" secondAttribute="trailing" id="7Dy-Yc-2qX"/>
-                            <constraint firstItem="AWM-xH-7Us" firstAttribute="top" secondItem="ZAR-Aq-E2K" secondAttribute="top" id="JLV-0T-zlP"/>
-                            <constraint firstItem="ZAR-Aq-E2K" firstAttribute="bottom" secondItem="AWM-xH-7Us" secondAttribute="bottom" constant="211" id="Tn5-CR-ref"/>
+                            <constraint firstItem="AWM-xH-7Us" firstAttribute="leading" secondItem="ZAR-Aq-E2K" secondAttribute="leading" id="03n-qZ-BHi"/>
+                            <constraint firstItem="vaW-34-Vue" firstAttribute="top" secondItem="ZAR-Aq-E2K" secondAttribute="top" constant="59" id="FCH-bM-jUL"/>
+                            <constraint firstItem="ZAR-Aq-E2K" firstAttribute="bottom" secondItem="AWM-xH-7Us" secondAttribute="bottom" constant="79" id="HBX-jx-hd3"/>
+                            <constraint firstItem="AWM-xH-7Us" firstAttribute="top" secondItem="vaW-34-Vue" secondAttribute="bottom" constant="52" id="gjd-tY-8VL"/>
+                            <constraint firstItem="vaW-34-Vue" firstAttribute="centerX" secondItem="p6q-uM-NdG" secondAttribute="centerX" id="h65-qt-oS6"/>
+                            <constraint firstItem="vaW-34-Vue" firstAttribute="centerX" secondItem="AWM-xH-7Us" secondAttribute="centerX" id="ofo-1l-fRz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZAR-Aq-E2K"/>
                     </view>
