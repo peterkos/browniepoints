@@ -13,6 +13,10 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 	@IBOutlet weak var friendsTable: UITableView!
 
+
+
+
+
 	// MARK: Local Variables
 	// Data source for friends, and supporting info
 	var friends = List<Friend>()
@@ -64,22 +68,35 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 		let friendCell = tableView.dequeueReusableCell(withIdentifier: "friendCell")!
 
-		print("friend: \(friends[indexPath.row])")
-		friendCell.textLabel!.text = "DEATH"
-
 		// Setup the cell with some data
 		friendCell.textLabel!.text = friends[indexPath.row].username
 		friendCell.detailTextLabel!.text = friends[indexPath.row].browniePoints.description
 
-		// @TODO: Setup detail view with card-style popover of a profile, with rounded profile image and things
-
 		return friendCell
 
 	}
-	
 
-    
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+		// @TODO: Setup detail view with card-style popover of a profile, with rounded profile image and things
+		let title = "Become friends with \(friends[indexPath.row].username)?"
+		let alertView = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+
+		// Add some buttonz
+		// @TODO: Connect this to update model (database) state
+		alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { cancelAction in
+			print("cancelled")
+			alertView.dismiss(animated: true, completion: nil)
+		}))
+
+		alertView.addAction(UIAlertAction(title: "Join the pan", style: .default, handler: { acceptAction in
+			print("accepted!")
+			alertView.dismiss(animated: true, completion: nil)
+		}))
+
+		self.present(alertView, animated: true)
+
+	}
 
 
 }

@@ -152,7 +152,7 @@
                                 <rect key="frame" x="0.0" y="191" width="414" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" editingAccessoryType="detailButton" textLabel="L3b-IK-Fmw" detailTextLabel="V4X-G3-Gn3" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="xAv-AZ-gj5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" editingAccessoryType="detailButton" textLabel="L3b-IK-Fmw" detailTextLabel="V4X-G3-Gn3" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="xAv-AZ-gj5" customClass="FriendBrowseTableViewCell" customModule="BrowniePoints" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAv-AZ-gj5" id="fJy-Cp-arc">
@@ -175,6 +175,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="browniePointsLabel" destination="V4X-G3-Gn3" id="YWg-Ba-7LW"/>
+                                            <outlet property="friendNameLabel" destination="L3b-IK-Fmw" id="74x-m0-iXH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
