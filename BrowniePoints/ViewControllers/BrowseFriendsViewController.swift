@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 import RealmSwift
 
 class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +79,6 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-		// @TODO: Setup detail view with card-style popover of a profile, with rounded profile image and things
 		let title = "Become friends with \(friends[indexPath.row].username)?"
 		let alertView = UIAlertController(title: title, message: nil, preferredStyle: .alert)
 
@@ -96,6 +96,34 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 		self.present(alertView, animated: true)
 
+	}
+
+	func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+
+		// Manually trigger the segue, passing through the index of the tapped friend
+		// (Note that the segue is defined in the storyboard between the current VC, and the destination VC.)
+		performSegue(withIdentifier: "showFriendProfileSegue", sender: indexPath.row)
+		
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+
+		// @TODO: Setup custom card-style popover transition. Or, somehow modify the current modal one
+		if segue.identifier == "showFriendProfileSegue" {
+
+			guard let friendProfileViewController = segue.destination as? FriendProfileViewController else {
+				os_log("Unable to instantiate destination friend view controller in showFriendProfileSegue.")
+				return
+			}
+
+			guard let friendIndex = sender as? Int else {
+				os_log("Sender segue data is wrong type, for showFriendProfileSegue")
+				return
+			}
+
+			friendProfileViewController.currentFriend = friends[friendIndex]
+		}
 	}
 
 

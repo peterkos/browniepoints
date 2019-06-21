@@ -18,6 +18,7 @@
 		D74C1AA622B0788D0091FE8C /* GiveBrownieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1AA522B0788D0091FE8C /* GiveBrownieViewController.swift */; };
 		D74C1AA822B078AA0091FE8C /* BrowseFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1AA722B078AA0091FE8C /* BrowseFriendsViewController.swift */; };
 		D759D40E22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759D40D22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift */; };
+		D759D41022BCA2F200C0D803 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759D40F22BCA2F200C0D803 /* FriendProfileViewController.swift */; };
 		D7C579CA22B0D06B000F5DD4 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C579C922B0D06B000F5DD4 /* Friend.swift */; };
 		D7C579CC22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		D74C1AA522B0788D0091FE8C /* GiveBrownieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveBrownieViewController.swift; sourceTree = "<group>"; };
 		D74C1AA722B078AA0091FE8C /* BrowseFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseFriendsViewController.swift; sourceTree = "<group>"; };
 		D759D40D22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendBrowseTableViewCell.swift; sourceTree = "<group>"; };
+		D759D40F22BCA2F200C0D803 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		D7C579C922B0D06B000F5DD4 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCC0FA76812C7134262C1FFD /* Pods-BrowniePointsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePointsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePointsTests/Pods-BrowniePointsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D7C579CB22B0D2F5000F5DD4 /* FriendCollectionViewCell.swift */,
 				D726464122B858E3000CF690 /* BrowniePointButton.swift */,
 				D759D40D22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift */,
+				D759D40F22BCA2F200C0D803 /* FriendProfileViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				D726464222B858E3000CF690 /* BrowniePointButton.swift in Sources */,
 				D74C1AA822B078AA0091FE8C /* BrowseFriendsViewController.swift in Sources */,
 				D74C1AA622B0788D0091FE8C /* GiveBrownieViewController.swift in Sources */,
+				D759D41022BCA2F200C0D803 /* FriendProfileViewController.swift in Sources */,
 				D7C579CA22B0D06B000F5DD4 /* Friend.swift in Sources */,
 				D74C1A8522AF16E80091FE8C /* AppDelegate.swift in Sources */,
 				D759D40E22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift in Sources */,

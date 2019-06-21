@@ -203,11 +203,43 @@
                     <tabBarItem key="tabBarItem" title="Item" id="iI3-Xb-waF"/>
                     <connections>
                         <outlet property="friendsTable" destination="AWM-xH-7Us" id="VGO-Wj-xek"/>
+                        <segue destination="Hcs-yJ-0KK" kind="presentation" identifier="showFriendProfileSegue" id="1iv-l6-tiO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYS-lf-Gf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="137"/>
+        </scene>
+        <!--Friend Profile View Controller-->
+        <scene sceneID="3La-sc-d70">
+            <objects>
+                <viewController id="Hcs-yJ-0KK" customClass="FriendProfileViewController" customModule="BrowniePoints" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="eWl-v2-Fbf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmx-we-Vra">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rmx-we-Vra" firstAttribute="top" secondItem="TTj-Jh-gWa" secondAttribute="top" constant="411" id="RI9-f0-ZQh"/>
+                            <constraint firstItem="rmx-we-Vra" firstAttribute="centerY" secondItem="eWl-v2-Fbf" secondAttribute="centerY" id="UXT-Zt-MXk"/>
+                            <constraint firstItem="rmx-we-Vra" firstAttribute="centerX" secondItem="eWl-v2-Fbf" secondAttribute="centerX" id="ccY-HC-rWQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TTj-Jh-gWa"/>
+                    </view>
+                    <connections>
+                        <outlet property="friendNameLabel" destination="rmx-we-Vra" id="QaU-TD-cRt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ABl-eA-C8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765" y="137"/>
         </scene>
     </scenes>
 </document>
