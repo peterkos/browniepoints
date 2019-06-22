@@ -40,6 +40,9 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			return
 		}
 
+
+
+
 		// Update the view
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
@@ -60,9 +63,10 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 	let cellPercentWidth = CGFloat(0.7)
 	var friendViewFlowLayout: CenteredCollectionViewFlowLayout!
 
-	// Data source for friends, and supporting info
-	var friends = List<Friend>()
+	// Model state
+	var friendsController: FriendsController!
 
+	// Reference to the current friend
 	var currentFriend: Friend? {
 		didSet {
 			brownieNumberLabel.text = String(currentFriend!.browniePoints)
@@ -97,44 +101,31 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		// Set background color for now
 		friendCollection.backgroundView?.backgroundColor = .white
 
-		// @TODO: Add logic to filter only actual friends
-		let allFriends = realm.objects(Friend.self)
-
-		if (!allFriends.isEmpty) {
-
-			// Read the data into our local model isntance for our friendCollectionView
-			friends.append(objectsIn: allFriends)
-
-			// Also, update the collection view (we are the data source after all 😏)
-			self.friendCollection.reloadData()
-		} else {
-
-			// If no friends (someting something no cookies), add friends!
-			// (If only it was like this irl 😭)
-			friends.append(Friend(username: "dave", browniePoints: 2))
-			friends.append(Friend(username: "joe", browniePoints: 5))
-			friends.append(Friend(username: "bob", browniePoints: 0))
-			friends.append(Friend(username: "katie", browniePoints: 10))
-
-			// Save this example data to Realm, if it doesn't alreay exist
-			// (handled automatically by Realm)
-			try! realm.write {
-				realm.add(friends, update: .all)
-			}
-		}
-
 		// In addition to setting the current friend when the friend collection view is done scrolling,
 		// on initial viewdidload, no scrolling has occured.
 		// So, when the user loads up the page, we need to set it ourselves manually.
 		// (Defaults to first friend if it cannot be instantiated)
-		currentFriend = friends[friendViewFlowLayout.currentCenteredPage ?? 0]
+		currentFriend = friendsController.friends[friendViewFlowLayout.currentCenteredPage ?? 0]
+
     }
 
+	override func viewWillDisappear(_ animated: Bool) {
+
+		// When navigating away, pass our model controller to the next available view
+		// (here, only BrowseFriendsViewController)
+		if let browseFriendsViewController = self.tabBarController?.viewControllers?[1] as? BrowseFriendsViewController {
+			browseFriendsViewController.friendsController = friendsController
+			print("sent instance")
+		} else {
+			print("Unable to find next view controller.")
+			fatalError()
+		}
+	}
 
 	// MARK: -- UICollectionViewDelegate
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return friends.count
+		return friendsController.friends.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -149,7 +140,7 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 
 		// @TODO: Hanadle database updates automatically
 		// If the database is updated now, the UI doesn't change until the user swipes around a bit.
-		friendCell.label.text = friends[indexPath.row].username
+		friendCell.label.text = friendsController.friends[indexPath.row].username
 		return friendCell
 	}
 
@@ -161,7 +152,7 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			return
 		}
 
-		currentFriend = friends[friendIndex]
+		currentFriend = friendsController.friends[friendIndex]
 	}
 
 }

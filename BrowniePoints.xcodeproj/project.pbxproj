@@ -10,6 +10,7 @@
 		29CD6271BD9F9A62A8BA4289 /* Pods_BrowniePoints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9557B8CC903EDAFE606E8257 /* Pods_BrowniePoints.framework */; };
 		4FCF49FF81FDE790275ED4C1 /* Pods_BrowniePointsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05ADDE97F0EAF1E15EC746C /* Pods_BrowniePointsTests.framework */; };
 		D726464222B858E3000CF690 /* BrowniePointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D726464122B858E3000CF690 /* BrowniePointButton.swift */; };
+		D732478C22BDC18B00EF6CBD /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732478B22BDC18B00EF6CBD /* FriendsController.swift */; };
 		D74C1A8522AF16E80091FE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C1A8422AF16E80091FE8C /* AppDelegate.swift */; };
 		D74C1A8A22AF16E80091FE8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74C1A8822AF16E80091FE8C /* Main.storyboard */; };
 		D74C1A8C22AF16E90091FE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74C1A8B22AF16E90091FE8C /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		A05ADDE97F0EAF1E15EC746C /* Pods_BrowniePointsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrowniePointsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D444BD58B167CB3D75B5AFE8 /* Pods-BrowniePointsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrowniePointsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrowniePointsTests/Pods-BrowniePointsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D726464122B858E3000CF690 /* BrowniePointButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowniePointButton.swift; sourceTree = "<group>"; };
+		D732478B22BDC18B00EF6CBD /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		D74C1A8122AF16E80091FE8C /* BrowniePoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrowniePoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74C1A8422AF16E80091FE8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74C1A8922AF16E80091FE8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D7C579C922B0D06B000F5DD4 /* Friend.swift */,
+				D732478B22BDC18B00EF6CBD /* FriendsController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				D759D41022BCA2F200C0D803 /* FriendProfileViewController.swift in Sources */,
 				D7C579CA22B0D06B000F5DD4 /* Friend.swift in Sources */,
 				D74C1A8522AF16E80091FE8C /* AppDelegate.swift in Sources */,
+				D732478C22BDC18B00EF6CBD /* FriendsController.swift in Sources */,
 				D759D40E22BC9D3100C0D803 /* FriendBrowseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

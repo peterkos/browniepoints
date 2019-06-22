@@ -15,14 +15,13 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 	@IBOutlet weak var friendsTable: UITableView!
 
 
-
-
-
 	// MARK: Local Variables
-	// Data source for friends, and supporting info
-	// @TODO: Make distinction between friends and not-friends
-	// (Either via two tables here, or allow users to remove friends in the give points view controller)
-	var friends = List<Friend>()
+	// Data source for friends
+	var friendsController: FriendsController! {
+		didSet {
+			self.friendsTable.reloadData()
+		}
+	}
 
 	// Oh realm
 	let realm = try! Realm()
@@ -37,24 +36,6 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 			parentVC.title = "Find Friends"
 		}
 
-
-		// @FIXME: Optimize data flow!
-		// It's probably smarter to pass in the data once we've grabbed it in the first view,
-		// but because that takes effort I'm just going to re-fetch the data.
-		// @TODO: Add logic to filter only actual friends
-		let allFriends = realm.objects(Friend.self)
-
-		if (!allFriends.isEmpty) {
-
-			// Read the data into our local model isntance for our friendCollectionView
-			friends.append(objectsIn: allFriends)
-
-			print(friends)
-			// Also, update the table view (we are the data source after all 😏)
-			self.friendsTable.reloadData()
-
-		}
-
 		// Configure the table view to point to US
 		friendsTable.delegate = self
 		friendsTable.dataSource = self
@@ -64,7 +45,7 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 	// MARK: -- UITableViewDelegate/DataSource
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return friends.count
+		return friendsController.friends.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,8 +53,8 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 		let friendCell = tableView.dequeueReusableCell(withIdentifier: "friendCell")!
 
 		// Setup the cell with some data
-		friendCell.textLabel!.text = friends[indexPath.row].username
-		friendCell.detailTextLabel!.text = friends[indexPath.row].browniePoints.description
+		friendCell.textLabel!.text = friendsController.friends[indexPath.row].username
+		friendCell.detailTextLabel!.text = friendsController.friends[indexPath.row].browniePoints.description
 
 		return friendCell
 
@@ -81,7 +62,7 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-		let title = "Become friends with \(friends[indexPath.row].username)?"
+		let title = "Become friends with \(friendsController.friends[indexPath.row].username)?"
 		let alertView = UIAlertController(title: title, message: nil, preferredStyle: .alert)
 
 		// Add some buttonz
@@ -124,7 +105,7 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 				return
 			}
 
-			friendProfileViewController.currentFriend = friends[friendIndex]
+			friendProfileViewController.currentFriend = friendsController.friends[friendIndex]
 		}
 	}
 

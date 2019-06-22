@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+
+
+		// Realm setup & data
+
+		let realm = try! Realm()
+
+		// @TODO: Add logic to filter only actual friends
+		let friendsController = FriendsController()
+		let allFriends = realm.objects(Friend.self)
+
+		if (!allFriends.isEmpty) {
+
+			// Read the data into our local model isntance for our friendCollectionView
+			friendsController.friends.append(objectsIn: allFriends)
+
+		} else {
+
+			// If no friends (someting something no cookies), add friends!
+			// (If only it was like this irl 😭)
+			friendsController.friends.append(Friend(username: "Dave", browniePoints: 2))
+			friendsController.friends.append(Friend(username: "Joe", browniePoints: 5))
+			friendsController.friends.append(Friend(username: "Bob", browniePoints: 0))
+			friendsController.friends.append(Friend(username: "Katie", browniePoints: 10))
+
+			// Save this example data to Realm, if it doesn't alreay exist
+			// (handled automatically by Realm)
+			try! realm.write {
+				realm.add(friendsController.friends, update: .all)
+			}
+		}
+
+		// Finally, pass a reference of our model controller to our initial view controller
+		if let giveBrownieViewController = window?.rootViewController?.children.first?.children.first as? GiveBrownieViewController {
+			giveBrownieViewController.friendsController = friendsController
+			print("sent instance")
+		} else {
+			print("Unable to find root view controller.")
+			fatalError()
+		}
+
+
 		return true
 	}
 
