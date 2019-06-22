@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
