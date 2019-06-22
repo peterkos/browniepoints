@@ -13,6 +13,7 @@ target 'BrowniePoints' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Email'
   pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/OAuth' 
 
   target 'BrowniePointsTests' do
     inherit! :search_paths

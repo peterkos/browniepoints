@@ -23,6 +23,8 @@ PODS:
   - FirebaseUI/Google (8.0.2):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
+  - FirebaseUI/OAuth (8.0.2):
+    - FirebaseUI/Auth
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -63,6 +65,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Email
   - FirebaseUI/Google
+  - FirebaseUI/OAuth
   - RealmSwift
 
 SPEC REPOS:
@@ -94,6 +97,6 @@ SPEC CHECKSUMS:
   Realm: 0e73b4edeb5b6a90da3d83206883b2e34e00eb38
   RealmSwift: a81e650171ef0a5f999df1ed8d39ba8d6fce88a4
 
-PODFILE CHECKSUM: 905466f5651f2fab97d39c82688b132f518a3981
+PODFILE CHECKSUM: 32f62e4963345b602b1b52ce1a4469648128dda5
 
 COCOAPODS: 1.5.3

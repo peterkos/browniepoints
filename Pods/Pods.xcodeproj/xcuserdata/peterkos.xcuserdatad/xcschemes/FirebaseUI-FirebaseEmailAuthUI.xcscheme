@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8EB0C949755D1A56691EED7B46B014C5"
+               BlueprintIdentifier = "90298313F730E594E26F12B2508C4765"
                BuildableName = "FirebaseEmailAuthUI.bundle"
                BlueprintName = "FirebaseUI-FirebaseEmailAuthUI"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -36,6 +36,8 @@
 #import "FUIPasswordVerificationViewController.h"
 #import "FirebaseGoogleAuthUI.h"
 #import "FUIGoogleAuth.h"
+#import "FirebaseOAuthUI.h"
+#import "FUIOAuth.h"
 
 FOUNDATION_EXPORT double FirebaseUIVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseUIVersionString[];
