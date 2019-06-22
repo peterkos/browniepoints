@@ -10,36 +10,39 @@ import UIKit
 
 class FriendProfileViewController: UIViewController {
 
-	@IBOutlet weak var friendNameLabel: UILabel!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var profileImageView: UIImageView!
+	@IBOutlet weak var pointLabel: UILabel!
 
 
+	// MARK: Local variables
 	var currentFriend: Friend?
 
+
+	// MARK: View functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		if currentFriend != nil {
-			print("current friend not nil!")
-			friendNameLabel.text = currentFriend!.username
+		// Return if the friend wasn't passed properly from the BrowseFriendsViewController
+		guard let friend = currentFriend else {
+			print("Unable to instantiate friend profile (no friend object found).")
+			return
 		}
 
+		// Configure the image view
+		profileImageView.layer.cornerRadius = CGFloat(5.0)
 
-		
+		// Fill the properties!
+		nameLabel.text = friend.username
+		pointLabel.text = friend.browniePoints.description + " points"
+//		profileImageView.image = friend.profileImaage
+
+
+
 		// @TODO: Setup detail view with card-style popover of a profile, with rounded profile image and things
 
 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

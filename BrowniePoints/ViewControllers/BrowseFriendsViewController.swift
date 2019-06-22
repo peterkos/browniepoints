@@ -20,6 +20,8 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 
 	// MARK: Local Variables
 	// Data source for friends, and supporting info
+	// @TODO: Make distinction between friends and not-friends
+	// (Either via two tables here, or allow users to remove friends in the give points view controller)
 	var friends = List<Friend>()
 
 	// Oh realm
