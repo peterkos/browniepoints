@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8vU-kQ-7DJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uvj-gS-UXR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,15 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BrowniePoints" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNX-qv-8oV">
-                                <rect key="frame" x="153" y="468" width="109" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BrowniePoints" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNX-qv-8oV">
+                                <rect key="frame" x="91" y="355" width="233" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-6d-8qf" customClass="GIDSignInButton">
+                                <rect key="frame" x="87" y="414" width="240" height="128"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sir-rP-1iJ" firstAttribute="bottom" secondItem="CLB-6d-8qf" secondAttribute="bottom" constant="320" id="2yJ-Vz-yxf"/>
+                            <constraint firstItem="CLB-6d-8qf" firstAttribute="leading" secondItem="sir-rP-1iJ" secondAttribute="leading" constant="87" id="5oZ-Gy-e6E"/>
+                            <constraint firstItem="vNX-qv-8oV" firstAttribute="centerX" secondItem="CLB-6d-8qf" secondAttribute="centerX" id="Gyi-KL-Lrh"/>
+                            <constraint firstItem="vNX-qv-8oV" firstAttribute="top" secondItem="sir-rP-1iJ" secondAttribute="top" constant="311" id="KyC-SP-trY"/>
+                            <constraint firstItem="CLB-6d-8qf" firstAttribute="top" secondItem="vNX-qv-8oV" secondAttribute="bottom" constant="19" id="Udc-3H-aiQ"/>
+                            <constraint firstItem="vNX-qv-8oV" firstAttribute="leading" secondItem="sir-rP-1iJ" secondAttribute="leading" constant="91" id="hrm-Cy-Jf6"/>
+                            <constraint firstItem="vNX-qv-8oV" firstAttribute="centerX" secondItem="exe-Ax-yYS" secondAttribute="centerX" id="w5p-Yz-Lv7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sir-rP-1iJ"/>
                     </view>
                 </viewController>
