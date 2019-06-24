@@ -15,6 +15,7 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 	var window: UIWindow?
+	var friendsController = FriendsController()
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -28,13 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance()?.delegate = self
 
 
-
 		// Realm setup & data
 
 		let realm = try! Realm()
 
 		// @TODO: Add logic to filter only actual friends
-		let friendsController = FriendsController()
 		let allFriends = realm.objects(Friend.self)
 
 		if (!allFriends.isEmpty) {
@@ -64,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			print("sent instance")
 		} else {
 			print("Unable to find root view controller.")
+			// this isnt our initial VC at the moment so let's not get ahead of ourselves and QUIT
 //			fatalError()
 		}
 
@@ -106,6 +106,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 
 			print("User is signed in!")
+
+			// If we are in our login view controller,segue to the main view controller.
+			// Otherwise, uh... figure something out.
+			if let loginVC = self.window?.rootViewController as? LoginViewController {
+
+				let storyboard = self.window?.rootViewController?.storyboard
+				let mainNavVCNew = storyboard?.instantiateViewController(withIdentifier: "mainNavViewController")
+
+				guard let mainNavVC = mainNavVCNew else {
+					print("Unable to find mainNavViewController")
+					fatalError()
+				}
+
+				// Pass a reference of our model controller to our initial view controller
+				if let giveBrownieViewController = mainNavVC.children.first?.children.first as? GiveBrownieViewController {
+					giveBrownieViewController.friendsController = self.friendsController
+					print("sent instance 1")
+				} else {
+					print("Unable to find root view controller in sign in flow 1.")
+				}
+
+				if let another = mainNavVC.children.first?.children.last as? BrowseFriendsViewController  {
+					print("sent instance 2")
+					another.friendsController = self.friendsController
+				} else {
+					print("Unable to find root view controller in sign in flow 2.")
+				}
+
+				// Login persistence
+				UserDefaults.standard.set(true, forKey: "Logged in")
+
+				// Now that our view controller is instantiated, go!
+				loginVC.performSegue(withIdentifier: "loginSuccessSegue", sender: nil)
+			}
+
+
 		}
 
 	}
