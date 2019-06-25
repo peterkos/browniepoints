@@ -57,15 +57,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			}
 		}
 
-		// Finally, pass a reference of our model controller to our initial view controller
-		if let giveBrownieViewController = window?.rootViewController?.children.first?.children.first as? GiveBrownieViewController {
-			giveBrownieViewController.friendsController = friendsController
-			print("sent instance")
-		} else {
-			print("Unable to find root view controller.")
-			// this isnt our initial VC at the moment so let's not get ahead of ourselves and QUIT
-//			fatalError()
+
+		// Let's check to see if the user is logged in.
+		var loggedIn = UserDefaults.standard.value(forKey: "isLoggedIn") as? Bool
+
+		if loggedIn == nil {
+			// If no login state, assume the user is not logged in
+			UserDefaults.standard.set(false, forKey: "isLoggedIn")
+			loggedIn = false
 		}
+
+		// Now to conditionally show the view based on user authentication.
+		let storyboard = self.window?.rootViewController?.storyboard
+
+		// Set normal screen if logged in
+		if (loggedIn!) {
+
+			print("User is logged in!")
+			var rootVC = self.window?.rootViewController
+
+			rootVC = storyboard?.instantiateInitialViewController()
+
+			// Additionally, pass a reference of our model controller to our initial view controller
+			// (traversing navVC -> tabBarVC -> GiveBrowieVC)
+			if let giveBrownieViewController = rootVC?.children.first?.children.first as? GiveBrownieViewController {
+				giveBrownieViewController.friendsController = friendsController
+				print("sent instance")
+			} else {
+				print("Unable to find GiveBrownieViewController.")
+			}
+
+		} else {
+
+			print("User is NOT logged in!")
+
+			// Otherwise, show the login/splash screen and move on
+			self.window?.rootViewController = storyboard?.instantiateViewController(withIdentifier: "loginViewController")
+
+			// @FIXME: Pass data thorugh loginViewController
+		}
+
 
 
 		return true
@@ -107,39 +138,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 			print("User is signed in!")
 
-			// If we are in our login view controller,segue to the main view controller.
-			// Otherwise, uh... figure something out.
-			if let loginVC = self.window?.rootViewController as? LoginViewController {
+			// Login persistence
+			UserDefaults.standard.set(true, forKey: "Logged in")
 
-				let storyboard = self.window?.rootViewController?.storyboard
-				let mainNavVCNew = storyboard?.instantiateViewController(withIdentifier: "mainNavViewController")
 
-				guard let mainNavVC = mainNavVCNew else {
-					print("Unable to find mainNavViewController")
-					fatalError()
-				}
-
-				// Pass a reference of our model controller to our initial view controller
-				if let giveBrownieViewController = mainNavVC.children.first?.children.first as? GiveBrownieViewController {
-					giveBrownieViewController.friendsController = self.friendsController
-					print("sent instance 1")
-				} else {
-					print("Unable to find root view controller in sign in flow 1.")
-				}
-
-				if let another = mainNavVC.children.first?.children.last as? BrowseFriendsViewController  {
-					print("sent instance 2")
-					another.friendsController = self.friendsController
-				} else {
-					print("Unable to find root view controller in sign in flow 2.")
-				}
-
-				// Login persistence
-				UserDefaults.standard.set(true, forKey: "Logged in")
-
-				// Now that our view controller is instantiated, go!
-				loginVC.performSegue(withIdentifier: "loginSuccessSegue", sender: nil)
-			}
+			// @FIXME: Instantiate next VC
+			// Now that our view controller is instantiated, go!
+//			loginVC.performSegue(withIdentifier: "loginSuccessSegue", sender: nil)
 
 
 		}
