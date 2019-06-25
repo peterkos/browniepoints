@@ -59,6 +59,7 @@ PODS:
   - Realm/Headers (3.16.2)
   - RealmSwift (3.16.2):
     - Realm (= 3.16.2)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - CenteredCollectionView
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - FirebaseUI/OAuth
   - RealmSwift
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -82,6 +84,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Realm
     - RealmSwift
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
@@ -96,7 +99,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Realm: 0e73b4edeb5b6a90da3d83206883b2e34e00eb38
   RealmSwift: a81e650171ef0a5f999df1ed8d39ba8d6fce88a4
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 32f62e4963345b602b1b52ce1a4469648128dda5
+PODFILE CHECKSUM: 81b85d6368b82d9528753e6b1dcb0b8d41a6aef6
 
 COCOAPODS: 1.5.3
