@@ -67,6 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			loggedIn = false
 		}
 
+
+		// pass in the stupid model cotnroller
+		if let navVC = self.window?.rootViewController as? MainNavigationViewController {
+			navVC.friendsController = self.friendsController
+		}
+
 		// Now to conditionally show the view based on user authentication.
 		let storyboard = self.window?.rootViewController?.storyboard
 
@@ -74,27 +80,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		if (loggedIn!) {
 
 			print("User is logged in!")
-			var rootVC = self.window?.rootViewController
 
-			rootVC = storyboard?.instantiateInitialViewController()
-
-			// Additionally, pass a reference of our model controller to our initial view controller
-			// (traversing navVC -> tabBarVC -> GiveBrowieVC)
-			if let giveBrownieViewController = rootVC?.children.first?.children.first as? GiveBrownieViewController {
-				giveBrownieViewController.friendsController = friendsController
-				print("sent instance")
-			} else {
-				print("Unable to find GiveBrownieViewController.")
+			DispatchQueue.main.async {
+				self.reassignMainVC()
 			}
+
 
 		} else {
 
 			print("User is NOT logged in!")
 
 			// Otherwise, show the login/splash screen and move on
-			self.window?.rootViewController = storyboard?.instantiateViewController(withIdentifier: "loginViewController")
+//			self.window?.rootViewController = storyboard?.instantiateViewController(withIdentifier: "loginViewController")
 
-			// @FIXME: Pass data thorugh loginViewController
+
+			// Instantiate loginVC and pass model controller
+			let loginVCInstantiated = storyboard?.instantiateViewController(withIdentifier: "loginViewController") as? LoginViewController
+
+			guard let loginVC = loginVCInstantiated else {
+				print("Unable to instantiate loginVC")
+				fatalError()
+			}
+
+			loginVC.friendsController = self.friendsController
+
+			// Show it!
+			let rootVC = self.window?.rootViewController
+			rootVC?.present(loginVC, animated: true, completion: nil)
+
 		}
 
 
@@ -132,19 +145,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 				return
 			}
 
-			// User is signed in!
-			// @TODO: Do stuff
-
-
 			print("User is signed in!")
 
 			// Login persistence
-			UserDefaults.standard.set(true, forKey: "Logged in")
+//			UserDefaults.standard.set(true, forKey: "isLoggedIn")
 
+			// Let's try this on the main thread
+			DispatchQueue.main.async {
 
-			// @FIXME: Instantiate next VC
-			// Now that our view controller is instantiated, go!
-//			loginVC.performSegue(withIdentifier: "loginSuccessSegue", sender: nil)
+//				let rootVC = self.window?.rootViewController
+
+//				rootVC = self.
+
+				// Now that our view controller is instantiated, go!
+//				self.window?.rootViewController?.performSegue(withIdentifier: "loginSuccessSegue",
+//															  sender: self.friendsController)
+
+			}
+
 
 
 		}
@@ -152,9 +170,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	}
 
 	func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-		// @TODO: On disconnect, do things
+		print("LOGGED OUT")
 	}
 
+
+
+	// A function that instantiates the initial view controller and passes the model controller forward.
+	// I've factored this out to its own method mainly because of the model controller,
+	// and both the initial login flow and the GIDSignInDelegate signIn(...) need to do this step.
+	func reassignMainVC() {
+
+		var rootVC = self.window?.rootViewController
+
+		// Re-assign our root view controller to the mainNavViewController (containing GiveBrownieViewController)
+		rootVC = rootVC?.storyboard?.instantiateInitialViewController()
+
+
+//		// Pass a reference of our model controller to our initial view controller
+//		// (traversing navVC -> tabBarVC -> GiveBrowieVC)
+//		if let giveBrownieViewController = initialVC?.children.first?.children.first as? GiveBrownieViewController {
+//			print("from AppDel: \(friendsController)")
+//			giveBrownieViewController.friendsController = friendsController
+//			giveBrownieViewController.testVar = 10
+//			print("sent instance")
+//			return giveBrownieViewController
+//		} else {
+//			print("Unable to find GiveBrownieViewController.")
+//			return nil
+//		}
+
+	}
 
 }
 

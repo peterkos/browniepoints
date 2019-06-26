@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4E8807A-D9A9-46E9-969C-10665F4E5F33"
-            shouldBeEnabled = "No"
+            uuid = "C7FA9439-461B-4039-8541-3DE418811624"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BrowniePoints/ViewControllers/GiveBrownieViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "viewWillDisappear(_:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "logout(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

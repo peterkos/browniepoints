@@ -12,6 +12,8 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
+	var friendsController: FriendsController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,9 +21,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
 		GIDSignIn.sharedInstance().signIn()
 
-
-
     }
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		print("LOGINVC PREPAREFORSEGUE CALLED")
+
+		// Pass our data down another level
+		if let navVC = segue.destination as? MainNavigationViewController {
+			navVC.friendsController = self.friendsController
+		} else {
+			print("Unable to pass from login view controller")
+		}
+
+	}
+
 
 
 }

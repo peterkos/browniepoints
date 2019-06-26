@@ -11,6 +11,7 @@ import os
 
 import CenteredCollectionView
 import RealmSwift
+import GoogleSignIn
 
 class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -40,9 +41,6 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 			return
 		}
 
-
-
-
 		// Update the view
 		brownieNumberLabel.text = String(currentFriend!.browniePoints)
 
@@ -56,6 +54,10 @@ class GiveBrownieViewController: UIViewController, UICollectionViewDelegate, UIC
 		}
 	}
 
+	@IBAction func logout(_ sender: Any) {
+		GIDSignIn.sharedInstance().signOut()
+
+	}
 
 	// MARK: Local variables
 

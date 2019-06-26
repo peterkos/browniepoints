@@ -41,7 +41,7 @@
                         <viewLayoutGuide key="safeArea" id="sir-rP-1iJ"/>
                     </view>
                     <connections>
-                        <segue destination="8vU-kQ-7DJ" kind="show" identifier="loginSuccessSegue" id="IuB-KP-mSN"/>
+                        <segue destination="8vU-kQ-7DJ" kind="showDetail" identifier="loginSuccessSegue" id="IuB-KP-mSN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2Z-md-sWt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -51,7 +51,7 @@
         <!--mainNavViewController-->
         <scene sceneID="mq3-Ca-QgX">
             <objects>
-                <navigationController storyboardIdentifier="mainNavViewController" title="mainNavViewController" id="8vU-kQ-7DJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavViewController" title="mainNavViewController" id="8vU-kQ-7DJ" customClass="MainNavigationViewController" customModule="BrowniePoints" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Nt-Q9-4vc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -149,6 +149,14 @@
                                 <state key="normal" title="Give a Brownie Point!"/>
                                 <connections>
                                     <action selector="givePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7j-fj-7eN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13u-NQ-LNK">
+                                <rect key="frame" x="185" y="557" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwa-xx-8xY"/>
                                 </connections>
                             </button>
                         </subviews>

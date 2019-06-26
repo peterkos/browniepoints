@@ -19,7 +19,12 @@ class BrowseFriendsViewController: UIViewController, UITableViewDelegate, UITabl
 	// Data source for friends
 	var friendsController: FriendsController! {
 		didSet {
-			self.friendsTable.reloadData()
+
+			// Only reload if view is available
+			if friendsTable != nil {
+				self.friendsTable.reloadData()
+			}
+
 		}
 	}
 
