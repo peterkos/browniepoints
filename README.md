@@ -6,24 +6,27 @@
 
 # BrowniePoints
 
-> /ˈbrounē ˌpoint/  
-noun  
+> /ˈbrounē ˌpoint/
+noun
 an imaginary award given to someone who does good deeds or tries to please
 
 This app gives you a way to do just that -- you can send brownie points to friends, and collect achievements as you go!
 
+## Project Status
+
+This project is on haitus as I work on other things!
 
 ## Features
 
 Still in alpha, so no real "features" yet. Current goals are to:
 
 - [x] Get a basic UI up and running
-- [x] Build persistence for the points 
+- [x] Build persistence for the points
 - [ ] Setup a backend (severless?) + login system (firebase auth)
 
 ## Stack
 
-Frontend: Realm, Firebase  
+Frontend: Realm, Firebase
 Backend: ???
 
 
